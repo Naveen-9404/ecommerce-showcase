@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+header {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: #020617;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header span { color: #38bdf8; }
+
+header input {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+}
+
+.admin-btn {
+  background: #facc15;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.cart-icon { cursor: pointer; }
+
+.filters {
+  text-align: center;
+  margin: 20px;
+}
+
+.filters button {
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 20px;
+  border: none;
+  background: #38bdf8;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product {
+  background: #020617;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product button {
+  margin-top: 10px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  background: #38bdf8;
+}
+
+/* MODALS */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background: #020617;
+  width: 300px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+}
+
+/* CART */
+.cart {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: #020617;
+  padding: 15px;
+  transition: right 0.4s;
+}
+
+.cart.open { right: 0; }
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.cart-item button {
+  margin-left: 4px;
+}
+
+.pay-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #22c55e;
+}
+
+/* ORDERS */
+.orders {
+  padding: 30px;
+}
+
+.order-card {
+  background: #020617;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* ADMIN */
+.admin {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100%;
+  background: #020617;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.admin input {
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 6px;
+}
+
+.admin-item {
+  background: #0f172a;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+}
+
+.admin-item button {
+  background: red;
+  border: none;
+  color: white;
+  padding: 3px 6px;
+}
