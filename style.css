@@ -213,3 +213,12 @@ header input {
   margin-bottom: 6px;
   border-radius: 6px;
 }
+.badge {
+  display: inline-block;
+  background: #e5e7eb;
+  color: #1f2937;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}

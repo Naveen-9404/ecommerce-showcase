@@ -1,9 +1,25 @@
+
+const categoryImages = {
+  electronics: [
+    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+    "https://images.unsplash.com/photo-1518441902117-f6c5a9a1f1f4"
+  ],
+  fashion: [
+    "https://images.unsplash.com/photo-1528701800489-20be3c5fa9b0",
+    "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+  ],
+  home: [
+    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+    "https://images.unsplash.com/photo-1615874959474-d609969a20ed"
+  ]
+};
 let products = JSON.parse(localStorage.getItem("products")) || [
-  { id: 1, name: "Samsung Galaxy Smartphone", price: 14999, category: "electronics", img: "https://picsum.photos/300?1" },
-  { id: 2, name: "Wireless Headphones", price: 2999, category: "electronics", img: "https://picsum.photos/300?2" },
-  { id: 3, name: "Men Casual Sneakers", price: 3499, category: "fashion", img: "https://picsum.photos/300?3" },
-  { id: 4, name: "Ergonomic Office Chair", price: 6799, category: "home", img: "https://picsum.photos/300?4" }
+  { id: 1, name: "Samsung Galaxy Smartphone", price: 14999, category: "electronics" },
+  { id: 2, name: "Wireless Headphones", price: 2999, category: "electronics" },
+  { id: 3, name: "Men Casual Sneakers", price: 3499, category: "fashion" },
+  { id: 4, name: "Ergonomic Office Chair", price: 6799, category: "home" }
 ];
+
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
@@ -17,7 +33,8 @@ function renderProducts(list = products) {
   list.forEach(p => {
     productList.innerHTML += `
       <div class="product-card">
-        <img src="${p.img}">
+        <img src="${p.img || getCategoryImage(p.category)}">
+
         <h3>${p.name}</h3>
         <p class="price">₹${p.price}</p>
         <button class="quick-btn" onclick="openModal(${p.id})">Quick View</button>
@@ -120,6 +137,10 @@ function completePayment() {
   closePayment();
   renderOrders();
   alert("Payment Successful");
+}
+function getCategoryImage(category) {
+  const imgs = categoryImages[category];
+  return imgs[Math.floor(Math.random() * imgs.length)];
 }
 
 function renderOrders() {
