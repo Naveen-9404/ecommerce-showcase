@@ -8,30 +8,31 @@ const products = [
     name: "Samsung Galaxy Smartphone",
     price: 14999,
     category: "electronics",
-    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format"
+    img: "https://raw.githubusercontent.com/mdn/learning-area/main/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg"
   },
   {
     id: 2,
     name: "Wireless Headphones",
     price: 2999,
     category: "electronics",
-    img: "https://images.unsplash.com/photo-1585386959984-a4155224a1c1?w=500&auto=format"
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Headphones_1.jpg/640px-Headphones_1.jpg"
   },
   {
     id: 3,
     name: "Men Casual Sneakers",
     price: 3499,
     category: "fashion",
-    img: "https://images.unsplash.com/photo-1528701800489-20be3c85f8b8?w=500&auto=format"
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Sneakers.jpg/640px-Sneakers.jpg"
   },
   {
     id: 4,
     name: "Ergonomic Office Chair",
     price: 6799,
     category: "home",
-    img: "https://images.unsplash.com/photo-1582582429416-6a9518f26bb2?w=500&auto=format"
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Office_chair.jpg/640px-Office_chair.jpg"
   }
 ];
+
 
 /* =====================================================
    STATE
@@ -75,15 +76,16 @@ function renderProducts(list = products) {
     card.className = "product";
 
     card.innerHTML = `
-      <img 
-        src="${product.img}" 
-        alt="${product.name}"
-        onerror="this.src='https://via.placeholder.com/300x200?text=Product+Image'"
-      >
-      <h3>${product.name}</h3>
-      <p>₹${product.price.toLocaleString()}</p>
-      <button onclick="openModal(${product.id})">Quick View</button>
-    `;
+  <img 
+    src="${product.img}"
+    alt="${product.name}"
+    onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image';"
+  >
+  <h3>${product.name}</h3>
+  <p>₹${product.price.toLocaleString()}</p>
+  <button onclick="openModal(${product.id})">Quick View</button>
+`;
+
 
     productList.appendChild(card);
   });
@@ -253,3 +255,52 @@ function renderAdminOrders() {
     `;
   });
 }
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+function completePayment() {
+  orders.push({
+    id: Date.now(),
+    date: new Date().toLocaleString(),
+    total: cart.reduce((s, i) => s + i.price * i.qty, 0)
+  });
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+  cart = [];
+  saveCart();
+  closePayment();
+  alert("Order placed successfully!");
+}
+
+function openOrders() {
+  const modal = document.getElementById("orders-modal");
+  const list = document.getElementById("orders-list");
+  list.innerHTML = "";
+
+  if (orders.length === 0) {
+    list.innerHTML = "<p>No orders yet.</p>";
+  } else {
+    orders.forEach(o => {
+      list.innerHTML += `
+        <div class="order-item">
+          <strong>Order #${o.id}</strong><br>
+          ${o.date}<br>
+          Total: ₹${o.total}
+        </div>
+      `;
+    });
+  }
+  modal.style.display = "block";
+}
+
+function closeOrders() {
+  document.getElementById("orders-modal").style.display = "none";
+}
+
+function openHelp() {
+  document.getElementById("help-modal").style.display = "block";
+}
+
+function closeHelp() {
+  document.getElementById("help-modal").style.display = "none";
+}
+

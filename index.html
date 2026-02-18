@@ -25,6 +25,9 @@
   <button onclick="filterProducts('electronics')">Electronics</button>
   <button onclick="filterProducts('fashion')">Fashion</button>
   <button onclick="filterProducts('home')">Home</button>
+  <button onclick="openOrders()">My Orders</button>
+<button onclick="openHelp()">Help</button>
+
 </nav>
 
 <!-- PRODUCTS -->
@@ -74,6 +77,18 @@
   <h3>Total: ₹<span id="total">0</span></h3>
   <button class="primary-btn" onclick="openPayment()">Proceed to Pay</button>
 </div>
+<div id="help-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeHelp()">×</span>
+    <h2>Help & Support</h2>
+    <ul>
+      <li>📦 Track your orders in “My Orders”</li>
+      <li>💳 Payments are demo-based</li>
+      <li>📞 Contact: support@shopnow.com</li>
+    </ul>
+  </div>
+</div>
+
 
 <script src="script.js?v=3"></script>
 
