@@ -215,11 +215,22 @@ function completePayment() {
 ===================================================== */
 
 function toggleAdmin() {
+  const ADMIN_PASSWORD = "admin123"; // demo password
+
+  if (!sessionStorage.getItem("isAdmin")) {
+    const entered = prompt("Enter Admin Password:");
+
+    if (entered !== ADMIN_PASSWORD) {
+      alert("Unauthorized access");
+      return;
+    }
+    sessionStorage.setItem("isAdmin", "true");
+  }
+
   adminPanel.style.display =
     adminPanel.style.display === "block" ? "none" : "block";
-  renderAdminProducts();
-  renderAdminOrders();
 }
+
 
 function renderAdminProducts() {
   adminProducts.innerHTML = "";
