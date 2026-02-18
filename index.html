@@ -40,6 +40,31 @@
     <button class="primary-btn" onclick="addToCartFromModal()">Add to Cart</button>
   </div>
 </div>
+<div id="payment-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closePayment()">×</span>
+    <h2>Select Payment Method</h2>
+
+    <div class="payment-options">
+      <label>
+        <input type="radio" name="payment" checked>
+        UPI (Google Pay / PhonePe)
+      </label>
+
+      <label>
+        <input type="radio" name="payment">
+        Credit / Debit Card
+      </label>
+
+      <label>
+        <input type="radio" name="payment">
+        Cash on Delivery
+      </label>
+    </div>
+
+    <button class="pay-btn" onclick="completePayment()">Pay Now</button>
+  </div>
+</div>
 
 <!-- CART -->
 <div id="cart" class="cart">
@@ -50,7 +75,8 @@
   <button class="primary-btn" onclick="openPayment()">Proceed to Pay</button>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
+
 </body>
 </html>
 

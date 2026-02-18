@@ -8,28 +8,28 @@ const products = [
     name: "Samsung Galaxy Smartphone",
     price: 14999,
     category: "electronics",
-    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&auto=format"
+    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format"
   },
   {
     id: 2,
     name: "Wireless Headphones",
     price: 2999,
     category: "electronics",
-    img: "https://images.unsplash.com/photo-1585386959984-a4155224a1c1?w=600&auto=format"
+    img: "https://images.unsplash.com/photo-1585386959984-a4155224a1c1?w=500&auto=format"
   },
   {
     id: 3,
     name: "Men Casual Sneakers",
     price: 3499,
     category: "fashion",
-    img: "https://images.unsplash.com/photo-1528701800489-20be3c85f8b8?w=600&auto=format"
+    img: "https://images.unsplash.com/photo-1528701800489-20be3c85f8b8?w=500&auto=format"
   },
   {
     id: 4,
     name: "Ergonomic Office Chair",
     price: 6799,
     category: "home",
-    img: "https://images.unsplash.com/photo-1582582429416-6a9518f26bb2?w=600&auto=format"
+    img: "https://images.unsplash.com/photo-1582582429416-6a9518f26bb2?w=500&auto=format"
   }
 ];
 

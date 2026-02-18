@@ -125,3 +125,22 @@ body { background: #f1f3f6; color: #111; }
   object-fit: contain;
   background: #fff;
 }
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.payment-options label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pay-btn {
+  background: #ffd814;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
