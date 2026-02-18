@@ -1,99 +1,86 @@
-<!-- UPDATED index.html (Amazon/Flipkart-inspired clean UI) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ShopNow | E‑Commerce</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <title>E-Commerce Showcase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- TOP NAVBAR -->
-<header class="navbar">
-  <div class="logo">Shop<span>Now</span></div>
-  <input id="search" class="search" placeholder="Search for products" />
-  <div class="nav-actions">
-    <button class="admin-btn" onclick="toggleAdmin()">Admin</button>
-    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
-  </div>
+<header>
+  <h1>Shop<span>Now</span></h1>
+  <input id="search" placeholder="Search products...">
+  <button class="admin-btn" onclick="toggleAdmin()">Admin</button>
+  <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
 </header>
+<span style="opacity:0.7;font-size:14px;">Frontend E-Commerce Demo</span>
 
-<!-- CATEGORY BAR -->
-<nav class="category-bar">
+
+<section class="filters">
   <button onclick="filterProducts('all')">All</button>
   <button onclick="filterProducts('electronics')">Electronics</button>
   <button onclick="filterProducts('fashion')">Fashion</button>
   <button onclick="filterProducts('home')">Home</button>
-  <button onclick="openOrders()">My Orders</button>
-<button onclick="openHelp()">Help</button>
+</section>
 
-</nav>
+<main id="product-list" class="products"></main>
 
-<!-- PRODUCTS -->
-<div id="product-list"></div>
-
-
-<!-- QUICK VIEW MODAL -->
+<!-- PRODUCT MODAL -->
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">×</span>
-    <img id="modal-img" />
+    <img id="modal-img">
     <h3 id="modal-title"></h3>
     <p id="modal-price"></p>
-    <button class="primary-btn" onclick="addToCartFromModal()">Add to Cart</button>
-  </div>
-</div>
-<div id="payment-modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closePayment()">×</span>
-    <h2>Select Payment Method</h2>
-
-    <div class="payment-options">
-      <label>
-        <input type="radio" name="payment" checked>
-        UPI (Google Pay / PhonePe)
-      </label>
-
-      <label>
-        <input type="radio" name="payment">
-        Credit / Debit Card
-      </label>
-
-      <label>
-        <input type="radio" name="payment">
-        Cash on Delivery
-      </label>
-    </div>
-
-    <button class="pay-btn" onclick="completePayment()">Pay Now</button>
+    <button onclick="addToCartFromModal()">Add to Cart</button>
   </div>
 </div>
 
 <!-- CART -->
 <div id="cart" class="cart">
-    <button class="close-cart" onclick="toggleCart()">← Back</button>
-   <h2>Your Cart</h2>
+  <h2>Your Cart</h2>
   <div id="cart-items"></div>
   <h3>Total: ₹<span id="total">0</span></h3>
-  <button class="primary-btn" onclick="openPayment()">Proceed to Pay</button>
+  <button class="pay-btn" onclick="openPayment()">Proceed to Pay</button>
 </div>
-<div id="help-modal" class="modal">
+
+<!-- PAYMENT -->
+<div id="payment-modal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeHelp()">×</span>
-    <h2>Help & Support</h2>
-    <ul>
-      <li>📦 Track your orders in “My Orders”</li>
-      <li>💳 Payments are demo-based</li>
-      <li>📞 Contact: support@shopnow.com</li>
-    </ul>
+    <span class="close" onclick="closePayment()">×</span>
+    <h3>Mock Payment</h3>
+    <input placeholder="Card Number">
+    <input placeholder="Expiry">
+    <input placeholder="CVV">
+    <button onclick="completePayment()">Pay Now</button>
   </div>
 </div>
 
+<!-- ORDER HISTORY -->
+<section class="orders">
+  <h2>Order History</h2>
+  <div id="order-list"></div>
+</section>
 
-<script src="script.js?v=FINAL"></script>
+<!-- ADMIN PANEL -->
+<div id="admin" class="admin">
+  <h2>Admin Dashboard</h2>
 
+  <h3>Add Product</h3>
+  <input id="pname" placeholder="Name">
+  <input id="pprice" placeholder="Price">
+  <input id="pcat" placeholder="Category">
+  <input id="pimg" placeholder="Image URL">
+  <button onclick="addProduct()">Add Product</button>
 
+  <h3>Products</h3>
+  <div id="admin-products"></div>
+
+  <h3>Orders</h3>
+  <div id="admin-orders"></div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
-
