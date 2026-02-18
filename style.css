@@ -1,50 +1,42 @@
-/* ========== GLOBAL ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
   background: #f4f6f8;
-  color: #1f2933;
+  color: #111827;
 }
 
-/* ========== HEADER ========== */
+/* HEADER */
 header {
   background: #0f172a;
   color: white;
   padding: 15px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-header h1 {
-  font-size: 24px;
-  font-weight: 600;
+  gap: 15px;
 }
 
 header h1 span {
-  color: #38bdf8;
+  color: #facc15;
 }
 
 header input {
-  width: 260px;
+  flex: 1;
   padding: 8px 14px;
   border-radius: 6px;
   border: none;
-  outline: none;
 }
 
 .admin-btn {
   background: #facc15;
   border: none;
-  padding: 7px 14px;
+  padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: 500;
 }
 
 .cart-icon {
@@ -52,28 +44,23 @@ header input {
   font-size: 18px;
 }
 
-/* ========== FILTERS ========== */
+/* FILTERS */
 .filters {
-  padding: 20px;
+  background: #1e293b;
+  padding: 12px;
   text-align: center;
 }
 
 .filters button {
-  margin: 5px;
+  margin: 0 6px;
   padding: 8px 18px;
   border-radius: 20px;
   border: none;
   background: #e5e7eb;
   cursor: pointer;
-  font-weight: 500;
 }
 
-.filters button:hover {
-  background: #38bdf8;
-  color: white;
-}
-
-/* ========== PRODUCTS GRID ========== */
+/* PRODUCTS GRID */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -81,47 +68,46 @@ header input {
   padding: 30px 40px;
 }
 
-.product {
+.product-card {
   background: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: 16px;
+  text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
 
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+.product-card:hover {
+  transform: translateY(-6px);
 }
 
-.product img {
+.product-card img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
+  object-fit: contain;
 }
 
-.product h3 {
+.product-card h3 {
   margin: 10px 0 5px;
+  font-size: 16px;
 }
 
-.product p {
-  font-weight: 600;
-  color: #2563eb;
+.product-card .price {
+  font-weight: bold;
+  color: #dc2626;
 }
 
-.product button {
-  margin-top: 10px;
+.quick-btn {
   width: 100%;
+  margin-top: 10px;
   padding: 10px;
-  background: #2563eb;
-  color: white;
+  background: #facc15;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-/* ========== MODAL ========== */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -140,76 +126,59 @@ header input {
 
 .modal-content img {
   width: 100%;
-  border-radius: 8px;
 }
 
 .close {
   float: right;
   cursor: pointer;
-  font-size: 20px;
 }
 
-/* ========== CART ========== */
+/* CART */
 .cart {
   position: fixed;
-  right: -360px;
+  right: -340px;
   top: 0;
-  width: 340px;
+  width: 320px;
   height: 100%;
   background: #0f172a;
   color: white;
   padding: 20px;
-  transition: right 0.4s ease;
-  overflow-y: auto;
+  transition: right 0.4s;
 }
 
 .cart.open {
   right: 0;
 }
 
-.cart h2 {
-  margin-bottom: 15px;
-}
-
 .cart-item {
   background: #1e293b;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 8px;
-}
-
-.cart-item button {
-  margin: 3px;
-  padding: 4px 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 6px;
 }
 
 .pay-btn {
-  margin-top: 15px;
   width: 100%;
+  margin-top: 10px;
   padding: 10px;
   background: #22c55e;
   border: none;
   border-radius: 6px;
-  font-weight: 600;
 }
 
-/* ========== ORDERS ========== */
+/* ORDERS */
 .orders {
   padding: 40px;
 }
 
 .order-card {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
+  padding: 12px;
   margin-bottom: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-radius: 8px;
 }
 
-/* ========== ADMIN PANEL ========== */
+/* ADMIN */
 .admin {
   display: none;
   position: fixed;
@@ -223,16 +192,10 @@ header input {
   overflow-y: auto;
 }
 
-.admin h2 {
-  margin-bottom: 10px;
-}
-
 .admin input {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 8px;
-  border-radius: 5px;
-  border: none;
+  margin-bottom: 6px;
+  padding: 6px;
 }
 
 .admin button {
@@ -240,14 +203,13 @@ header input {
   padding: 8px;
   background: #38bdf8;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 
 .admin-item {
   background: #0f172a;
   padding: 8px;
-  border-radius: 6px;
   margin-bottom: 6px;
+  border-radius: 6px;
 }
