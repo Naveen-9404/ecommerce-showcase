@@ -1,0 +1,55 @@
+<!-- UPDATED index.html (Amazon/Flipkart-inspired clean UI) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShopNow | E‑Commerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- TOP NAVBAR -->
+<header class="navbar">
+  <div class="logo">Shop<span>Now</span></div>
+  <input id="search" class="search" placeholder="Search for products" />
+  <div class="nav-actions">
+    <button class="admin-btn" onclick="toggleAdmin()">Admin</button>
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+  </div>
+</header>
+
+<!-- CATEGORY BAR -->
+<nav class="category-bar">
+  <button onclick="filterProducts('all')">All</button>
+  <button onclick="filterProducts('electronics')">Electronics</button>
+  <button onclick="filterProducts('fashion')">Fashion</button>
+  <button onclick="filterProducts('home')">Home</button>
+</nav>
+
+<!-- PRODUCTS -->
+<main id="product-list" class="products"></main>
+
+<!-- QUICK VIEW MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modal-img" />
+    <h3 id="modal-title"></h3>
+    <p id="modal-price"></p>
+    <button class="primary-btn" onclick="addToCartFromModal()">Add to Cart</button>
+  </div>
+</div>
+
+<!-- CART -->
+<div id="cart" class="cart">
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+  <h3>Total: ₹<span id="total">0</span></h3>
+  <button class="primary-btn" onclick="openPayment()">Proceed to Pay</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
