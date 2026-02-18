@@ -2,6 +2,8 @@
    PRODUCT DATA (STATIC)
 ===================================================== */
 
+
+document.addEventListener("DOMContentLoaded", () => {
 const products = [
   {
     id: 1,
@@ -255,7 +257,6 @@ function renderAdminOrders() {
     `;
   });
 }
-let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
 function completePayment() {
   orders.push({
@@ -303,4 +304,6 @@ function openHelp() {
 function closeHelp() {
   document.getElementById("help-modal").style.display = "none";
 }
+renderProducts();
+});
 
